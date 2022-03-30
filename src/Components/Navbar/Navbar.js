@@ -1,37 +1,51 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import { MenuAlt2Icon, XIcon } from "@heroicons/react/solid";
+
+function CustomLink({ children, to, ...props }) {
+  let resolved = useResolvedPath(to);
+  let match = useMatch({ path: resolved.pathname, end: true });
+
+  return (
+    <div>
+      <Link style={{ color: match ? "#53B8BB" : "black" }} to={to} {...props}>
+        {children}
+      </Link>
+    </div>
+  );
+}
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="flex justify-between py-6 px-5 bg-[#fafafa] font-mono relative">
-      <h1 className="md:text-xl text-normal">CRYPTO NEWS</h1>
+    <header className="sticky top-0 flex justify-between items-center py-5 px-5 bg-[#fafafa] font-mono relative">
+      <h1 className="md:text-xl text-normal">
+        <Link to="/">CRYPTO NEWS</Link>
+      </h1>
 
-      <div onClick={() => setOpen(!open)} className="md:hidden w-5 cursor-pointer">
+      <div onClick={() => setOpen(!open)} className="md:hidden  w-5 cursor-pointer">
         {open ? <XIcon></XIcon> : <MenuAlt2Icon></MenuAlt2Icon>}
       </div>
 
-      <ul
-        className={`flex flex-col md:flex-row md:block mx-auto md:mx-0 absolute md:static right-10 bg-slate-400 p-2 md:bg-transparent ${
+      <div
+        className={`flex flex-col md:flex-row  md:mx-0 absolute md:static md:right-0 right-10 bg-slate-400 p-3 md:bg-transparent duration-500 ${
           open ? "top-8" : "right-[-200px]"
-        } duration-300 `}
+        }  `}
       >
-        <Link className="mr-3 p-2 md:text-xl" to="/home">
+        <CustomLink className="mr-3 p-3 md:text-xl" to="/home">
           Home
-        </Link>
-        <Link className="mr-3 p-2 md:text-xl" to="/coins">
+        </CustomLink>
+        <CustomLink className="mr-3 p-3 md:text-xl" to="/coins">
           Coins
-        </Link>
-        <Link className="mr-3 p-2 md:text-xl" to="/about">
+        </CustomLink>
+        <CustomLink className="mr-3 p-3 md:text-xl" to="/about">
           About
-        </Link>
-        <Link className="p-2 md:text-xl" to="/contact">
+        </CustomLink>
+        <CustomLink className="p-3 md:text-xl" to="/contact">
           Contact
-        </Link>
-      </ul>
+        </CustomLink>
+      </div>
     </header>
   );
 };
