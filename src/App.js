@@ -1,9 +1,13 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Homepage from "./Components/Homepage/Homepage";
 
 const App = () => {
   return (
     <div>
-      <h1>Crypto News making</h1>
+      <Routes>
+        <Route path="/" element={<Homepage></Homepage>}></Route>
+      </Routes>
     </div>
   );
 };
