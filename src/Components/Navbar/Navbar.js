@@ -8,7 +8,7 @@ function CustomLink({ children, to, ...props }) {
 
   return (
     <div>
-      <Link style={{ color: match ? "#53B8BB" : "black" }} to={to} {...props}>
+      <Link style={{ color: match ? "#6dd6e4" : "black" }} to={to} {...props}>
         {children}
       </Link>
     </div>
@@ -29,8 +29,8 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`flex flex-col md:flex-row  md:mx-0 absolute md:static md:right-0 right-10 bg-slate-400 p-3 md:bg-transparent duration-500 ${
-          open ? "top-8" : "right-[-200px]"
+        className={`flex flex-col md:flex-row  md:mx-0 absolute md:static md:right-0 right-4 bg-slate-400 p-3 md:bg-transparent duration-500 ${
+          open ? "top-11" : "right-[-400px]"
         }  `}
       >
         <CustomLink className="mr-3 p-3 md:text-xl" to="/home">
