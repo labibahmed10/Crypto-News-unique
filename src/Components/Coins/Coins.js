@@ -20,7 +20,7 @@ const Coins = () => {
       </h1>
       <p className="text-center py-3 md:text-2xl">Available Now: {coins.length} </p>
 
-      <section className="grid md:grid-cols-3 grid-cols-1 gap-6 my-5">
+      <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 my-5">
         {coins.map((coin) => (
           <CoinCard key={coin.id} coin={coin}></CoinCard>
         ))}
