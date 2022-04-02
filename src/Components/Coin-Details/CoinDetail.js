@@ -16,14 +16,14 @@ const CoinDetail = () => {
 
   return (
     <div className="flex items-center md:justify-evenly md:flex-row flex-col-reverse md:py-16 py-10  text-gray-600 text-justify">
-      <div className="md:w-2/3 px-5 md:px-0">
+      <div className="md:w-7/12 px-5 md:px-0">
         <h1 className="text-3xl">General Information:</h1>
         <hr className="border-1 w-2/3 pb-5" />
 
         <p className="text-xl">Market Cap Rank: {singleCoin?.market_cap_rank}</p>
         <p className="text-xl">
           {" "}
-          ConractOrigin: {singleCoin.contract_address ? singleCoin.contract_address : "Not Available"}
+          Conract Origin: {singleCoin.contract_address ? singleCoin.contract_address : "Not Available"}
         </p>
         <p className="text-xl">
           Home Page: <a href={singleCoin.links?.homepage[0]}>{singleCoin.links?.homepage[0]}</a>

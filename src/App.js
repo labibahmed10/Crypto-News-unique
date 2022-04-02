@@ -4,7 +4,9 @@ import About from "./Components/About/About";
 import CoinDetail from "./Components/Coin-Details/CoinDetail";
 
 import Coins from "./Components/Coins/Coins";
-import Contact from "./Components/Contacts/Contact";
+import BdAddress from "./Components/Contact/BdAddress";
+import UkAddress from "./Components/Contact/UkAddress";
+import Contact from "./Components/Contact/Contact";
 import Footer from "./Components/Footer/Footer";
 import Homepage from "./Components/Homepage/Homepage";
 import Navbar from "./Components/Navbar/Navbar";
@@ -20,7 +22,10 @@ const App = () => {
         <Route path="/coins" element={<Coins></Coins>}></Route>
         <Route path="/details/:name" element={<CoinDetail></CoinDetail>}></Route>
         <Route path="/about" element={<About></About>}></Route>
-        <Route path="contact" element={<Contact></Contact>}></Route>
+        <Route path="/contact" element={<Contact></Contact>}>
+          <Route path="BdAddress" element={<BdAddress></BdAddress>}></Route>
+          <Route path="UkAddress" element={<UkAddress></UkAddress>}></Route>
+        </Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
 
