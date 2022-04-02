@@ -11,7 +11,6 @@ const Coins = () => {
       .then((res) => res.json())
       .then((data) => setCoins(data));
   }, []);
-  console.log(coins);
 
   return (
     <section>
