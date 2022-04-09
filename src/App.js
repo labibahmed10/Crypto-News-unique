@@ -11,6 +11,7 @@ import Footer from "./Components/Footer/Footer";
 import Homepage from "./Components/Homepage/Homepage";
 import Navbar from "./Components/Navbar/Navbar";
 import NotFound from "./Components/NotFound/NotFound";
+import SignUp from "./Components/SignUp/SignUp";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="BdAddress" element={<BdAddress></BdAddress>}></Route>
           <Route path="UkAddress" element={<UkAddress></UkAddress>}></Route>
         </Route>
+        <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
 
