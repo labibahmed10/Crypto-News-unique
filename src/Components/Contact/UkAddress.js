@@ -8,7 +8,7 @@ const UsAddress = () => {
           <h1 className="text-sm md:text-xl">Street: 12/03, Small Health</h1>
           <h1 className="text-sm md:text-xl">City: Birmingham</h1>
           <h1 className="text-sm md:text-xl">Phone: +22(607)2333333</h1>
-          <h1 className="text-sm md:text-xl">Email: Thoma.shelby@gmail.com</h1>
+          <h1 className="text-sm md:text-xl">Email: Thomas.shelby@gmail.com</h1>
         </div>
         <div>
           <h1 className="md:text-2xl text-md">UK OFFICE</h1>
