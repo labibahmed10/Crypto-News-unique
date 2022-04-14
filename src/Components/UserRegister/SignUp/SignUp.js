@@ -39,9 +39,12 @@ const SignUp = () => {
       return;
     } else {
       await createUserWithEmailAndPassword(email, password);
-      navigate("/login");
     }
   };
+
+  if (user) {
+    navigate("/login");
+  }
 
   return (
     <>
