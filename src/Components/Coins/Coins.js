@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CoinCard from "../CoinCard/CoinCard";
-import Spinner from "../Spinner/Spinner";
+import Loading from "../UserRegister/Loading/Loading";
 
 const Coins = () => {
   const [coins, setCoins] = useState([]);
@@ -19,7 +19,7 @@ const Coins = () => {
   return (
     <>
       {loading ? (
-        <Spinner />
+        <Loading></Loading>
       ) : (
         <section>
           <h1 className="text-center font-semibold md:text-4xl text-xl font-mono mt-5">

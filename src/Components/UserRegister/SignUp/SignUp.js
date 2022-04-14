@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth } from "../../../firebase.init";
@@ -15,28 +15,34 @@ const SignUp = () => {
   const passwordRef = useRef("");
   const confrimPassRef = useRef("");
 
-  const handleSubmit = (event) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     const confirmPass = confrimPassRef.current.value;
 
-    if (!email || !password || !confirmPass) {
-      toast.warn("Please Fill Up The Form!", {
-        position: "top-center",
-      });
-      return;
-    }
+    // if (!email || !password || !confirmPass) {
+    //   toast.warn("Please Fill Up The Form!", {
+    //     position: "top-center",
+    //   });
+    //   return;
+    // }
+    console.log(password, confirmPass);
 
-    if (email !== confirmPass) {
+    if (password !== confirmPass) {
       toast.error("Password did not matched!", {
         position: "top-center",
         autoClose: 2000,
       });
       return;
+    } else {
+      await createUserWithEmailAndPassword(email, password);
+      navigate("/login");
     }
   };
-  console.log(accepted);
+
   return (
     <>
       <div className=" h-[80vh] flex justify-center items-center">
@@ -77,9 +83,10 @@ const SignUp = () => {
                 Confirm Password:
               </label>
               <input
+                ref={confrimPassRef}
                 className="border-2 rounded-md border-[#39a2df] px-5 py-2 w-full focus:outline-0"
                 type="password"
-                name="password"
+                name="conpassword"
                 placeholder="Confirm Password"
                 autoComplete="false"
               />

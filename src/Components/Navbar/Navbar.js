@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import { MenuAlt2Icon, XIcon } from "@heroicons/react/solid";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase.init";
 
 function CustomLink({ children, to, ...props }) {
   let resolved = useResolvedPath(to);
@@ -17,6 +20,11 @@ function CustomLink({ children, to, ...props }) {
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [user] = useAuthState(auth);
+
+  const LogOut = () => {
+    signOut(auth);
+  };
 
   return (
     <header className="sticky top-0 flex justify-between items-center py-5 px-5 bg-[#f5f5f5] font-mono relative">
@@ -45,9 +53,15 @@ const Navbar = () => {
         <CustomLink className="p-3 md:text-xl text-lg" to="/contact">
           Contact
         </CustomLink>
-        <CustomLink className="p-3 md:text-xl text-lg" to="/login">
-          Login
-        </CustomLink>
+        {user ? (
+          <button onClick={LogOut} className="block px-2 md:text-xl text-lg">
+            Log Out
+          </button>
+        ) : (
+          <CustomLink className="p-3 md:text-xl text-lg" to="/login">
+            Log in
+          </CustomLink>
+        )}
       </div>
     </header>
   );

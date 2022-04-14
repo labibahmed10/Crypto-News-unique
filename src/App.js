@@ -13,6 +13,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import NotFound from "./Components/NotFound/NotFound";
 import SignUp from "./Components/UserRegister/SignUp/SignUp";
 import LogIn from "./Components/UserRegister/Login/LogIn";
+import RequireAuth from "./Components/UserRegister/RequireAuth/RequireAuth";
 
 const App = () => {
   return (
@@ -22,7 +23,14 @@ const App = () => {
         <Route path="/" element={<Homepage></Homepage>}></Route>
         <Route path="/home" element={<Homepage></Homepage>}></Route>
         <Route path="/coins" element={<Coins></Coins>}></Route>
-        <Route path="/details/:name" element={<CoinDetail></CoinDetail>}></Route>
+        <Route
+          path="/details/:name"
+          element={
+            <RequireAuth>
+              <CoinDetail></CoinDetail>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/contact" element={<Contact></Contact>}>
           <Route path="BdAddress" element={<BdAddress></BdAddress>}></Route>

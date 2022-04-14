@@ -7,6 +7,7 @@ import {
   useSignInWithGoogle,
   useSignInWithTwitter,
 } from "react-firebase-hooks/auth";
+import Loading from "../Loading/Loading";
 
 const SignInCommon = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
@@ -16,6 +17,10 @@ const SignInCommon = () => {
   const [signInWithGithub, Guser, Gloading, Gerror] = useSignInWithGithub(auth);
 
   const [signInWithFacebook, Fuser, Floading, Ferror] = useSignInWithFacebook(auth);
+
+  if (loading || Tloading || Gloading || Floading) {
+    return <Loading></Loading>;
+  }
 
   return (
     <>

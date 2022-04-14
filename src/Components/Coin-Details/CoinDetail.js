@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Spinner from "../Spinner/Spinner";
+import Loading from "../UserRegister/Loading/Loading";
 
 const CoinDetail = () => {
   const { name } = useParams();
@@ -16,12 +16,10 @@ const CoinDetail = () => {
     setLoading(false);
   }, [name]);
 
-  console.log(singleCoin);
-
   return (
     <>
       {loading ? (
-        <Spinner />
+        <Loading></Loading>
       ) : (
         <div className="flex items-center md:justify-evenly md:flex-row flex-col-reverse md:py-16 py-10  text-gray-600 text-justify">
           <div className="md:w-7/12 px-5 md:px-0">
