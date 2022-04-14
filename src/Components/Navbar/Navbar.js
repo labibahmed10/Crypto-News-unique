@@ -45,8 +45,8 @@ const Navbar = () => {
         <CustomLink className="p-3 md:text-xl text-lg" to="/contact">
           Contact
         </CustomLink>
-        <CustomLink className="p-3 md:text-xl text-lg" to="/signup">
-          Signup
+        <CustomLink className="p-3 md:text-xl text-lg" to="/login">
+          Login
         </CustomLink>
       </div>
     </header>

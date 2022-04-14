@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SignInCommon from "../UserRegister/Common/SignInCommon";
+import SignInCommon from "../Common/SignInCommon";
 
-const SignUp = () => {
+const LogIn = () => {
   return (
     <div>
-      <div className=" h-[80vh] flex justify-center items-center ">
-        <div className=" py-6 px-8  shadow-xl w-96 h-auto">
-          <h1 className="text-center pb-8 text-2xl ">Sign Up</h1>
+      <div className=" h-[80vh] flex justify-center items-center">
+        <div className=" py-6 px-8 shadow-xl w-96 h-auto bg-white">
+          <h1 className="text-center pb-8 text-2xl ">Log In</h1>
 
           <form action="">
             <div className="mb-2">
@@ -34,18 +34,8 @@ const SignUp = () => {
                 autoComplete="false"
               />
             </div>
-            <div className="mb-2">
-              <label className="block pb-1" htmlFor="password">
-                Confirm Password:
-              </label>
-              <input
-                className="border-2 rounded-md border-[#39a2df] px-5 py-2 w-full focus:outline-0"
-                type="password"
-                name="password"
-                placeholder="Confirm Password"
-                autoComplete="false"
-              />
-            </div>
+
+          
 
             <button
               type="submit"
@@ -56,11 +46,16 @@ const SignUp = () => {
             </button>
 
             <p className="text-md my-2 text-gray-600 text-center">
-              Already registered?
-              <Link className="underline text-[#39a2df] ml-1" to="/login">
-                login
+              New in Crypto News?
+              <Link className="underline text-[#39a2df] ml-1" to="/signup">
+                Sign Up
               </Link>
             </p>
+
+            <Link className="hover:underline text-[#39a2df] ml-1 text-center block" to="/login">
+              Forgot Your Password?
+            </Link>
+
             <SignInCommon></SignInCommon>
           </form>
         </div>
@@ -69,4 +64,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default LogIn;
