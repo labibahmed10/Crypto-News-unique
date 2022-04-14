@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SignInCommon from "../UserRegister/Common/SignInCommon";
 
 const SignUp = () => {
   return (
@@ -60,15 +61,7 @@ const SignUp = () => {
                 login
               </Link>
             </p>
-
-            <div className="flex cursor-pointer items-center justify-evenly py-3 mt-5 shadow-md bg-[#F8FAFC] border border-[#39a2df]">
-              <img
-                className="w-7 object-contain"
-                src="https://developers.google.com/identity/images/g-logo.png"
-                alt=""
-              />
-              <p>Sign In with Google</p>
-            </div>
+            <SignInCommon></SignInCommon>
           </form>
         </div>
       </div>
